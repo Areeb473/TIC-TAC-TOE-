@@ -1,0 +1,181 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #ffffff;
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+}
+
+h1 {
+    color: #ffcc00;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+#gameBoard {
+    display: grid;
+    gap: 10px;
+    margin: 0 auto;
+    width: fit-content;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+
+#gameBoard:hover {
+    transform: scale(1.05);
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    background-color: #3b3b4f;
+    border: 2px solid #5a5a7c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    position: relative;
+}
+
+.cell.x {
+    color: #ff4444; /* Bright red for Player X */
+    animation: pop 0.4s ease-out;
+}
+
+.cell.o {
+    color: #44ff44; /* Bright green for Player O */
+    animation: pop 0.4s ease-out;
+}
+
+.cell:hover:not(.x):not(.o) {
+    background: radial-gradient(circle, #00e1ff, #0075ff);
+    transform: scale(1.1);
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#status {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    opacity: 0;
+    color: #00ffab;
+}
+
+#status.active {
+    opacity: 1;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.winning-line {
+    position: absolute;
+    background: #ffd700; /* Golden winning line */
+    box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+    z-index: 1;
+    animation: winning-glow 0.5s infinite alternate;
+}
+
+@keyframes winning-glow {
+    from {
+        opacity: 0.6;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #ffcc00, #ffaa00);
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ffdd44, #ffcc00);
+    transform: scale(1.1);
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: #000;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content button {
+    padding: 10px 20px;
+    background-color: #44ff44;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.popup-content button:hover {
+    background-color: #36cc36;
+}
