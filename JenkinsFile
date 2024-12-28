@@ -3,14 +3,23 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/Areeb473/TIC-TAC-TOE-.git'
+                git branch: 'main', url: 'https://github.com/yourusername/Devops-FP.git'
             }
         }
         stage('Deploy Locally') {
             steps {
                 script {
-                    bat 'xcopy /E /I /Y . "D:\\TIC-TAC-TOE-\\Devops FP"'
+                    // Specify the deployment folder
+                    def deployPath = 'D:/TIC-TAC-TOE/Devops-FP'
+                    bat "if not exist ${deployPath} mkdir ${deployPath}"
+                    bat "xcopy /E /I /Y . ${deployPath}"
                 }
+            }
+        }
+        stage('Post Deployment Check') {
+            steps {
+                echo 'Deployment Complete!'
+                echo 'You can access the project from your local deployment folder.'
             }
         }
     }
