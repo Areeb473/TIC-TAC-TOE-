@@ -9,17 +9,21 @@ pipeline {
         stage('Deploy Locally') {
             steps {
                 script {
-                    // Specify the deployment folder
-                    def deployPath = 'D:/TIC-TAC-TOE/Devops-FP'
-                    bat "if not exist ${deployPath} mkdir ${deployPath}"
-                    bat "xcopy /E /I /Y . ${deployPath}"
+                    // Define the deployment path
+                    def deployPath = 'D:\TIC-TAC-TOE-\Devops FP'
+                    
+                    // Ensure deployment directory exists
+                    bat "if not exist \"${deployPath}\" mkdir \"${deployPath}\""
+                    
+                    // Copy files to deployment directory
+                    bat "xcopy /E /I /Y . \"${deployPath}\""
                 }
             }
         }
         stage('Post Deployment Check') {
             steps {
                 echo 'Deployment Complete!'
-                echo 'You can access the project from your local deployment folder.'
+                echo 'You can access the project at: D:\\TIC-TAC-TOE\\Devops-FP'
             }
         }
     }
