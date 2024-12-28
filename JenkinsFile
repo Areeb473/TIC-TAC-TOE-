@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/yourusername/Devops-FP.git'
+                git branch: 'main', url: 'https://github.com/Areeb473/TIC-TAC-TOE-.git'
             }
         }
         stage('Deploy Locally') {
