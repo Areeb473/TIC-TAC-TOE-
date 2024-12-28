@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Areeb473/TIC-TAC-TOE-.git'
+            }
+        }
+        stage('Deploy Locally') {
+            steps {
+                script {
+                    bat 'xcopy /E /I /Y . "D:\\TIC-TAC-TOE-\\Devops FP"'
+                }
+            }
+        }
+    }
+}
