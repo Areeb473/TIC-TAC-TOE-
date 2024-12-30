@@ -23,7 +23,7 @@ pipeline {
         stage('Post Deployment Check') {
             steps {
                 echo 'Deployment Complete!'
-                echo 'You can access the project at: C:\Users\\Saad Hassan\\Projects\\TIC-TAC-TOE--main'
+                echo 'You can access the project at: C:\\Users\\Saad Hassan\\Projects\\TIC-TAC-TOE--main'
             }
         }
     }
