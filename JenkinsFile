@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     // Define the deployment path
-                    def deployPath = 'D:\\TIC-TAC-TOE-\\Devops FP'
+                    def deployPath = 'C:\\Users\\Saad Hassan\\Projects'
                     
                     // Ensure deployment directory exists
                     bat "if not exist \"${deployPath}\" mkdir \"${deployPath}\""
