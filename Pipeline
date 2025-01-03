@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     // Define the deployment path
-                    def deployPath = 'C:\\Users\\HYBRID SOLUTION\\Desktop\\DEVOPS FINALPROJECT\\Tic-Tac-Toe'
+                    def deployPath = 'C:\\Users\\Saad Hassan\\Desktop\\DEVOPS_FP'
                     
                     // Ensure deployment directory exists
                     bat "if not exist \"${deployPath}\" mkdir \"${deployPath}\""
@@ -23,7 +23,7 @@ pipeline {
         stage('Post Deployment Check') {
             steps {
                 echo 'Deployment Complete!'
-                echo 'You can access the project at: C:\\Users\\HYBRID SOLUTION\\Desktop\\DEVOPS FINALPROJECT\\Tic-Tac-Toe'
+                echo 'You can access the project at: C:\\Users\\Saad Hassan\\Desktop\\DEVOPS_FP'
             }
         }
     }
